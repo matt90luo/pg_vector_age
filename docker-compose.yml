@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    build: .
+    image: postgres:16-pgvector-age
+    environment:
+      POSTGRES_USER: postgres     # 自定义用户名
+      POSTGRES_PASSWORD: password # 自定义密码
+      POSTGRES_DB: postgres         # 自定义数据库名
+      POSTGRES_SHARED_PRELOAD_LIBRARIES: 'age' # 预加载 AGE
+    ports:
+      - "5432:5432"            # 暴露端口
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # 数据持久化
+
+volumes:
+  postgres_data:
