@@ -7,5 +7,5 @@ CREATE EXTENSION IF NOT EXISTS age;
 -- 验证加载（可选）
 LOAD 'age';
 
--- add search_path
+-- add search_path 
 ALTER role salesaidev IN DATABASE salesai SET search_path TO ag_catalog, "$user", public;
